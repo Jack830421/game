@@ -12,9 +12,9 @@ function middleNumber(min: number, max: number): number {
     return Math.floor((max - min) / 2) + min
 }
 
-const answer: number = randomNumber(min, max)
-let guessAnswer: number = middleNumber(min, max)
-let turn: number = 1;
+const answer = randomNumber(min, max)
+let guessAnswer = middleNumber(min, max)
+let turn = 1;
 
 
 while (guessAnswer !== answer) {
