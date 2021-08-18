@@ -10,12 +10,12 @@ function attack() {
     let mhp = A.HP;
     let mlevel = A.level;
     let mexp = A.exp;
-    // let mattack = A.attack;
+    let mattack = A.attack;
 
     //玩家相關變數
-    // let pname = B.name;
-    // let php =B.HP;
-    // let plevel = B.level;
+    let pname = player.Name;
+    let php = player.HP;
+    let plevel = player.level;
     let pexp = player.exp;
     let pattack = player.attack;
     let pbag = player.bag
@@ -23,7 +23,7 @@ function attack() {
 
 
     //判斷是否進行打怪
-    if (player.level >= mlevel) {
+    if (plevel >= mlevel) {
         let mitem = A.item[Math.floor(Math.random() * A.item.length)];
         console.log('我們的等級大於' + mname + '，開始進行戰鬥，讓我們打爆它吧')
         fight(mname, pattack, mhp, mexp, mitem);
@@ -34,10 +34,11 @@ function attack() {
 
     //打怪功能，當怪物血量為 0 時，停止 function，並將exp 加入 players  
     function fight(name: string, attack: number, mhp: number, mexp: number, mitem: string) {
-        for (let i = 0; i <= (mhp / pattack) + 1; i++) {
+        for (let i = 1; i <= (mhp / pattack) + 1; i++) {
             console.log(mname + `被打了` + i + `下，血量剩餘:` + (mhp - (pattack * i)));
-            if ((mhp - (pattack * i)) === 0) {
-                break;
+            console.log(pname + `被打了` + i + `下，血量剩餘:` + (php - (mattack * i)));
+            if ((mhp - (pattack * i)) == 0 || (php - (mattack * i)) !== 0) {
+                return (php - (mattack * i));
             }
         };
         console.log('成功擊敗' + name + ',獲得經驗值:' + mexp + ',獲得物品:' + mitem)
@@ -45,7 +46,8 @@ function attack() {
         let C = pbag.push(mitem)
         console.log('現在包包擁有' + C + '件物品')
         if (C > 3) {
-            console.log('警告')}
+            console.log('警告')
+        }
         if (C >= 5) {
             console.log('物品負重 50% ，無法自動回復血量且無法進行攻擊，請盡快販賣物品')
             clearInterval(myvar);
