@@ -1,0 +1,12 @@
+[
+    {"level": 1 ,"name": "嫩寶"    ,"hp": 8,"exp": 3,"gold": 5, "dropitem": "嫩寶殼" ,"itemcore": 1 },
+    {"level": 1 ,"name": "菇菇仔"  ,"hp": 20,"exp": 5,"gold": 10, "dropitem": "菇菇孢子" ,"itemcore": 2 },
+    {"level": 2 ,"name": "藍寶"    ,"hp": 15,"exp": 4,"gold": 10, "dropitem": "藍寶殼" ,"itemcore": 3 },
+    {"level": 4 ,"name": "木妖"    ,"hp": 65,"exp": 8,"gold": 15, "dropitem": "樹枝" ,"itemcore": 4 },
+    {"level": 4 ,"name": "紅寶"    ,"hp": 45,"exp": 8,"gold": 15, "dropitem": "紅寶殼" ,"itemcore": 5 },
+    {"level": 6 ,"name": "綠水靈"  ,"hp": 50,"exp": 10,"gold": 15, "dropitem": "綠水靈珠" ,"itemcore": 6 },
+    {"level": 7 ,"name": "肥肥"    ,"hp": 75,"exp": 15,"gold": 17, "dropitem": "豬頭" ,"itemcore": 7 },
+    {"level": 8 ,"name": "菇菇寶貝","hp": 80,"exp": 15,"gold": 20, "dropitem": "菇菇帽" ,"itemcore": 8 },
+    {"level": 10,"name": "緞帶肥肥","hp": 120,"exp": 20,"gold": 25, "dropitem": "緞帶","itemcore": 9 },
+    {"level": 10,"name": "黑木妖"  ,"hp": 250,"exp": 18,"gold": 25, "dropitem": "黑樹枝" ,"itemcore": 10 }
+]

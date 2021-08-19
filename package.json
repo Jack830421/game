@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "志強",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^16.4.13"
