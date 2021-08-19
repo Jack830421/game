@@ -5,6 +5,16 @@ import { 怪物前綴, 怪物名稱, 怪物模型, 物品列表 } from './monste
 export function 檢查玩家狀態(玩家資料: 玩家模型) {
 };
 
+//經驗值計算( 升等所需經驗值 )
+export function 經驗值計算(level: number) {
+    return (level * 10) ** 2
+};
+
+//玩家經驗值統計
+export function 玩家經驗值統計(玩家資料: 玩家模型, exp: number) {
+
+};
+
 //怪物生成
 export function 動態怪物生成(玩家資料: 玩家模型) {
     let 基礎怪物資料: 怪物模型;
@@ -30,18 +40,36 @@ export function 動態怪物生成(玩家資料: 玩家模型) {
 
 //打怪戰鬥
 export function 打怪(玩家資料: 玩家模型) {
-
+    var 隨機怪物 = 動態怪物生成(玩家資料);
+    let 是否掉落 = 是否掉落物品();
+    if (是否掉落 == true) {
+        放進背包(玩家資料, 隨機怪物.item, 1, 隨機怪物.itemcore);
+        console.log(`${玩家資料.Name} 遇到了 ${leftpad(隨機怪物.Name, 8, '　')}，掉落了${leftpad(隨機怪物.item, 5, '　')} x 1個`)
+        檢查背包數量(玩家資料)
+    } else {
+        console.log(`${玩家資料.Name} 遇到了 ${leftpad(隨機怪物.Name, 8, '　')}，可惜沒掉材料`)
+        檢查背包數量(玩家資料)
+    }
 };
 
-//經驗值計算( 升等所需經驗值 )
-export function 經驗值計算(level: number) {
-    return (level * 10) ** 2
+function leftpad(str: any, len: number, ch: any) {
+    str = String(str);
+    var i = -1;
+    if (!ch && ch !== 0) ch = ' ';
+    len = len - str.length;
+    while (++i < len) {
+        str = ch + str;
+    }
+    return str;
 };
 
-//玩家經驗值統計
-export function 玩家經驗值統計(玩家資料: 玩家模型, exp: number) {
-
+export function 是否掉落物品() {
+    //獲取100之內的任意一個整數，將機率分成100份;
+    var n1 = Math.round(Math.random() * 100);
+    //n1 > 20 沒掉落物品，< 20 則掉落
+    if (n1 > 20) return false; return true;
 };
+
 
 //檢查背包內是否已有此物品 , 有 -> 直接加上 ； 無 ->直接放入
 export function 放進背包(玩家資料: 玩家模型, item: string, count: number, gold: number) {
